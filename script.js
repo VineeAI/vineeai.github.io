@@ -1,15 +1,8 @@
 const words = [
-
-"AI Engineer",
-
-"Python Automation Engineer",
-
-"FastAPI Developer",
-
-"Generative AI Enthusiast",
-
-"RAG Developer"
-
+    "AI Engineer",
+    "GenAI Developer",
+    "RAG Application Developer",
+    "Python Automation Engineer"
 ];
 
 let wordIndex = 0;
