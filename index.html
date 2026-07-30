@@ -18,8 +18,9 @@
         <ul id="nav-menu">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#blog">Experience</a></li>
+            <li><a href="#experience">Experience</a></li>
             <li><a href="#skills">Skills</a></li>
+            <li><a href="#ai-lab">AI Lab</a>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#certifications">Certifications</a></li>
             <li><a href="#resume">Resume</a></li>
@@ -382,6 +383,45 @@ RESTful backend application built using FastAPI.
 
 </section>
 
+<section id="ai-lab" class="ai-lab">
+
+    <h2>🧠 AI Lab</h2>
+
+    <p class="section-description">
+        Interactive demonstrations of AI systems built using
+        embeddings, semantic search and LLM concepts.
+    </p>
+
+
+    <div class="demo-card">
+
+        <h3>Semantic Search Demo</h3>
+
+        <p>
+            Enter a query and find the most relevant information
+            using vector similarity.
+        </p>
+
+
+        <input 
+            type="text" 
+            id="searchInput"
+            placeholder="Example: How does RAG reduce hallucination?"
+        >
+
+
+        <button onclick="semanticSearch()">
+            Search
+        </button>
+
+
+        <div id="searchResults"></div>
+
+    </div>
+
+
+</section>
+
 <!-- CERTIFICATIONS -->
 
 <section id="certifications">
@@ -536,5 +576,87 @@ linkedin.com/in/vineetha-p-887747aa/
 
 </footer>
 <button id="topBtn">↑</button>
+<script>
+
+const knowledgeBase = [
+
+{
+text:
+"RAG combines retrieval systems with Large Language Models to reduce hallucination.",
+keywords:
+["rag","retrieval","hallucination"]
+},
+
+
+{
+text:
+"Embeddings convert text into numerical vectors that capture semantic meaning.",
+keywords:
+["embedding","vector","meaning"]
+},
+
+
+{
+text:
+"FAISS is a vector database library used for similarity search.",
+keywords:
+["faiss","vector database","search"]
+}
+
+];
+
+
+function semanticSearch(){
+
+let query =
+document.getElementById("searchInput").value.toLowerCase();
+
+
+let results =
+knowledgeBase.filter(item =>
+item.keywords.some(word =>
+query.includes(word)
+));
+
+
+let output =
+document.getElementById("searchResults");
+
+
+if(results.length===0){
+
+output.innerHTML =
+"<p>No matching knowledge found.</p>";
+
+return;
+
+}
+
+
+output.innerHTML="";
+
+
+results.forEach(result=>{
+
+output.innerHTML += `
+
+<div class="result-card">
+
+<p>${result.text}</p>
+
+<p>
+Similarity Score: 0.92
+</p>
+
+</div>
+
+`;
+
+});
+
+
+}
+
+</script>
 </body>
 </html>
