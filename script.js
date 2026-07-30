@@ -156,11 +156,11 @@ document.querySelector(".menu-toggle");
 const menu=
 document.querySelector("#nav-menu");
 
-toggle.onclick=()=>{
-
-menu.classList.toggle("open");
-
-}
+toggle.onclick = () => {
+    console.log("Menu clicked");
+    menu.classList.toggle("open");
+    console.log(menu.classList.value);
+};
 
 const topBtn =
 document.getElementById("topBtn");
