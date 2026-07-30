@@ -88,7 +88,7 @@ counter.innerText=target;
 update();
 
 });
-
+/*
 const observer=
 new IntersectionObserver(entries=>{
 
@@ -112,7 +112,7 @@ section.classList.add("hidden");
 observer.observe(section);
 
 });
-
+*/
 const sections =
 document.querySelectorAll("section");
 
