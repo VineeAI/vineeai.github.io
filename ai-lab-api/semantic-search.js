@@ -119,8 +119,16 @@ documentVectors.map(doc=>{
 console.log(results);
 
 
-results.sort(
-(a,b)=>b.score-a.score
+results.sort((a,b)=>b.score-a.score);
+
+
+// Similarity threshold
+const threshold = 0.35;
+
+
+// Keep only relevant results
+const filteredResults = results.filter(
+    result => result.score >= threshold
 );
 
 
@@ -133,7 +141,28 @@ document.getElementById(
 output.innerHTML="";
 
 
-results.slice(0,3)
+// No relevant results found
+if(filteredResults.length === 0){
+
+    output.innerHTML = `
+
+    <div class="result-card">
+
+    <p>
+    No relevant information found.
+    Try asking something related to AI concepts.
+    </p>
+
+    </div>
+
+    `;
+
+    return;
+}
+
+
+// Display top 3 relevant results
+filteredResults.slice(0,3)
 .forEach(result=>{
 
 
@@ -153,6 +182,3 @@ ${result.score.toFixed(3)}
 `;
 
 });
-
-
-}
