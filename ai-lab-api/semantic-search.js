@@ -95,22 +95,23 @@ console.log(queryEmbedding);
 let results =
 documentVectors.map(doc=>{
 
-let score =
-cosineSimilarity(
-queryEmbedding.data,
-doc.vector
-);
-console.log(results);
+    let score =
+    cosineSimilarity(
+        queryEmbedding.data,
+        doc.vector
+    );
 
-return {
+    return {
 
-text:doc.text,
+        text:doc.text,
 
-score:score.toFixed(3)
+        score:score
 
-};
+    };
 
 });
+
+console.log(results);
 
 
 results.sort(
@@ -139,7 +140,7 @@ output.innerHTML += `
 
 <p>
 Similarity Score:
-${result.score}
+${result.score.toFixed(3)}
 </p>
 
 </div>
