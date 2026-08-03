@@ -165,7 +165,6 @@ if(filteredResults.length === 0){
 filteredResults.slice(0,3)
 .forEach(result=>{
 
-
 output.innerHTML += `
 
 <div class="result-card">
@@ -182,3 +181,5 @@ ${result.score.toFixed(3)}
 `;
 
 });
+
+};
