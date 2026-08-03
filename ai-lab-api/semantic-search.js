@@ -7,6 +7,46 @@ from "./documents.js";
 
 
 let extractor;
+let documentVectors = [];
+
+
+async function loadModel(){
+
+extractor = await pipeline(
+"feature-extraction",
+"Xenova/all-MiniLM-L6-v2"
+);
+
+
+// Create embeddings for documents
+
+for(let doc of documents){
+
+let output = await extractor(
+doc.text,
+{
+pooling:"mean",
+normalize:true
+}
+);
+
+
+documentVectors.push({
+text:doc.text,
+vector:output.data
+});
+
+}
+
+
+console.log(
+"Embedding model loaded"
+);
+
+}
+
+
+loadModel();
 
 
 async function loadModel(){
@@ -48,5 +88,82 @@ normB += b[i]*b[i];
 
 return dot /
 (Math.sqrt(normA)*Math.sqrt(normB));
+
+}
+
+window.semanticSearch = async function(){
+
+let query =
+document
+.getElementById("searchInput")
+.value;
+
+
+let queryEmbedding =
+await extractor(
+query,
+{
+pooling:"mean",
+normalize:true
+}
+);
+
+
+let results =
+documentVectors.map(doc=>{
+
+let score =
+cosineSimilarity(
+queryEmbedding.data,
+doc.vector
+);
+
+
+return {
+
+text:doc.text,
+
+score:score.toFixed(3)
+
+};
+
+});
+
+
+results.sort(
+(a,b)=>b.score-a.score
+);
+
+
+let output =
+document.getElementById(
+"searchResults"
+);
+
+
+output.innerHTML="";
+
+
+results.slice(0,3)
+.forEach(result=>{
+
+
+output.innerHTML += `
+
+<div class="result-card">
+
+<p>${result.text}</p>
+
+<p>
+Similarity Score:
+${result.score}
+</p>
+
+</div>
+
+`;
+
+});
+
 
 }
