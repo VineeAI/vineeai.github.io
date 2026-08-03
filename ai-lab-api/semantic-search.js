@@ -49,23 +49,6 @@ console.log(
 loadModel();
 
 
-async function loadModel(){
-
-extractor = await pipeline(
-"feature-extraction",
-"Xenova/all-MiniLM-L6-v2"
-);
-
-
-console.log(
-"Embedding model loaded"
-);
-
-}
-
-
-loadModel();
-
 function cosineSimilarity(a,b){
 
 let dot=0;
