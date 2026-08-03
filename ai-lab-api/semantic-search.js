@@ -39,9 +39,9 @@ vector:output.data
 }
 
 
-console.log(
-"Embedding model loaded"
-);
+console.log("Embedding model loaded");
+console.log("Documents embedded:", documentVectors.length);
+console.log(documentVectors);
 
 }
 
