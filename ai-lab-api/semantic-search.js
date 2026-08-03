@@ -76,6 +76,11 @@ return dot /
 
 window.semanticSearch = async function(){
 
+    if (!extractor || documentVectors.length === 0) {
+        alert("Model is still loading. Please wait a few seconds.");
+        return;
+    }
+
 let query =
 document
 .getElementById("searchInput")
