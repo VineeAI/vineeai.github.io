@@ -741,8 +741,11 @@ footer{
 .search-container {
     display: flex;
     justify-content: center;
-    margin: 30px auto;
-    width: 100%;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 10;
 }
 
 #searchInput {
