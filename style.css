@@ -24,9 +24,9 @@ padding:60px 10%;
 }
 
 
-.demo-card {
+.demo-card{
 
-background:#f5f5f5;
+background:#1e293b;
 
 padding:30px;
 
@@ -34,38 +34,52 @@ border-radius:15px;
 
 margin-top:30px;
 
-}
-
-
-.demo-card input {
-
-width:70%;
-
-padding:12px;
-
-font-size:16px;
+color:white;
 
 }
 
 
-.demo-card button {
+.demo-card input{
 
-padding:12px 20px;
+background:#0f172a;
 
-cursor:pointer;
+color:white;
+
+border:1px solid #38bdf8;
+
+border-radius:8px;
 
 }
 
 
-.result-card {
+.demo-card button{
 
-background:white;
+background:#38bdf8;
+
+color:black;
+
+border:none;
+
+border-radius:8px;
+
+font-weight:bold;
+
+}
+
+
+.result-card{
+
+background:#0f172a;
+
+color:white;
 
 margin-top:20px;
 
 padding:15px;
 
-border-left:5px solid #333;
+border-left:5px solid #38bdf8;
+
+border-radius:8px;
 
 }
 
