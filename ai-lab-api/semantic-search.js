@@ -80,7 +80,7 @@ let query =
 document
 .getElementById("searchInput")
 .value;
-
+console.log("Query:", query);
 
 let queryEmbedding =
 await extractor(
@@ -90,7 +90,7 @@ pooling:"mean",
 normalize:true
 }
 );
-
+console.log(queryEmbedding);
 
 let results =
 documentVectors.map(doc=>{
@@ -100,7 +100,7 @@ cosineSimilarity(
 queryEmbedding.data,
 doc.vector
 );
-
+console.log(results);
 
 return {
 
