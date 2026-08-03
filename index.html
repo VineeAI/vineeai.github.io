@@ -403,21 +403,22 @@ RESTful backend application built using FastAPI.
         </p>
 
 
-        <input 
-            type="text" 
-            id="searchInput"
-            placeholder="Example: How does RAG reduce hallucination?"
-        >
+        <div class="search-container">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Example: How does RAG reduce hallucination?"
+            >
 
 
-        <button onclick="semanticSearch()">
-            Search
-        </button>
+            <button onclick="semanticSearch()">
+                Search
+            </button>
 
 
         <div id="searchResults"></div>
 
-    </div>
+        </div>
 
 
 </section>
